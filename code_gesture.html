@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>AR LAB LIBM</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="styles.css" />
+
+    <script src="aframe.min.js"></script>
+    <script src="aframe-ar-nft.js"></script>
+	
+	<script src="gesture-detector.js"></script>
+    <script src="gesture-handler.js"></script>
+  </head>
+	  <style>
+    .arjs-loader {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .arjs-loader div {
+        text-align: center;
+        font-size: 1.25em;
+        color: white;
+    }
+</style>
+
+<body style='margin : 0px; overflow: hidden;'>
+    <div class="arjs-loader">
+        <div>LIBM AR LAB 
+		<br/>
+		Loading, please wait...
+	    <br/>
+		After loading, center the camera on the surface.</div>
+    </div>
+  
+  <body style='margin : 0px; overflow: hidden; font-family: Monospace;'><div style='font-family: Monospace; position: absolute; top: 10px; width:100%; text-align: center; z-index: 1;'>
+	B.MOREL - M.BOWEN
+	3D AR Exhaustion Model
+	  <br>
+	 B.MOREL - M.BOWEN 
+	<br>
+	<a href='https://libm.univ-st-etienne.fr/fr/index.html' target='_blank'>LIBM Laboratory</a>
+</div>
+	  
+    <div style='font-family: Monospace; position: absolute; bottom: 10px; width:100%; text-align: center; z-index: 1;'>
+	One finger: Rotation 
+	    <br>
+	Two fingers: Zoom
+</div>
+	  
+
+  
+    <a-scene
+      arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
+      embedded
+      renderer="logarithmicDepthBuffer: true;"
+      vr-mode-ui="enabled: false"
+      gesture-detector
+      id="scene"
+    >
+	
+   
+	        <a-nft
+        type="nft"
+        url="https://maxdepeuf.github.io/codeAR/fig/fig"
+        smooth="true"
+        smoothCount="10"
+        smoothTolerance=".01"
+        smoothThreshold="5"
+		raycaster="objects: .clickable"
+        emitevents="true"
+        cursor="fuse: false; rayOrigin: mouse;"
+      >
+        <a-entity
+          gltf-model="https://maxdepeuf.github.io/codeAR/model/pvt3.glb"
+	  scale="75 75 75"
+          rotation= '-5 180 -40'
+	  position="50 10 -80"
+	  material="side: double"
+          class="clickable"
+          gesture-handler="minScale: 0.5; maxScale: 2"
+		         >
+        </a-entity>
+      </a-nft>
+	  
+      <a-entity camera></a-entity>
+    </a-scene>
+  </body> 
+</html>
